@@ -1,0 +1,22 @@
+﻿@model List<Tamer>
+
+<h1>Tamers</h1>
+<table class="TamerTable table table-bordered table-striped">
+    <thead> 
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Country</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model.OrderBy(u => u.Id))
+        {
+            <tr>
+                <td>@obj.Id</td>
+                <td>@obj.Name</td>
+                <td>@obj.Country</td>
+            </tr>
+        }
+    </tbody>
+</table>
