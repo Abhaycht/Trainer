@@ -1,0 +1,69 @@
+﻿@model Tamer
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>
+				Create Tamer
+			</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			@* form *@
+			<form role="form"  class="w-50">
+				<input asp-for="Id" hidden />
+				
+				<div class="form-group mb-3">
+					<label class="ms-2" asp-for="Name"></label>
+					<input type="text" asp-for="Name" class="form-control border-0 shadow" />
+
+				</div>
+				<div class="form-group mb-3">
+					<label class="ms-2" asp-for="Country"></label>
+					<input type="text" asp-for="Country" class="form-control border-0 shadow" />
+
+				</div>
+
+				<div class="row pt-2">
+					<div class="col-6 ">
+						<button type="submit" class="btn btn-success form-control">Create</button>
+					</div>
+					<div class="col-6 ">
+						<a asp-controller="Tamer" asp-action="Index" class="btn btn-outline-primary border  form-control">
+							Back to List
+						</a>
+					</div>
+				</div>
+				
+			</form>
+		</div>
+		<div class="col-md-6">
+			<div class="media">
+				<img class="mr-3" alt="Bootstrap Media Preview" src="https://www.layoutit.com/img/sports-q-c-64-64-8.jpg" />
+				<div class="media-body">
+					<h5 class="mt-0">
+						Nested media heading
+					</h5> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+					<div class="media mt-3">
+						<a class="pr-3" href="#"><img alt="Bootstrap Media Another Preview" src="https://www.layoutit.com/img/sports-q-c-64-64-2.jpg" /></a>
+						<div class="media-body">
+							<h5 class="mt-0">
+								Nested media heading
+							</h5> Cras sist amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+@section Scripts{
+	@{
+	<partial name="_ValidationScriptsPartial" />
+	}
+}

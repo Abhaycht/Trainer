@@ -1,22 +1,63 @@
 ﻿@model List<Tamer>
 
-<h1>Tamers</h1>
-<table class="TamerTable table table-bordered table-striped">
-    <thead> 
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Country</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(var obj in Model.OrderBy(u => u.Id))
-        {
-            <tr>
-                <td>@obj.Id</td>
-                <td>@obj.Name</td>
-                <td>@obj.Country</td>
-            </tr>
-        }
-    </tbody>
-</table>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-6">
+			<h3>
+				Tamer
+			</h3>
+		</div>
+		<div class="col-md-6">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+		</div>
+		<div class="col-md-6 text-end">
+
+			
+				<a asp-controller="Tamer" asp-action="Create" class="btn btn-success btn-lg btn-block mb-2">Create new Tamer</a>
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-sm">
+				<thead>
+					<tr>
+						<th>
+							ID
+						</th>
+						<th>
+							Name
+						</th>
+						<th>
+							Country 
+						</th>
+						<th>
+							Edits
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var obj in Model.OrderBy(u => u.Id))
+					{
+						<tr>
+							<td>@obj.Id</td>
+							<td>@obj.Name</td>
+							<td>@obj.Country</td>
+							<td>
+								<div class="w-75  gap-2" role="group">
+									<a asp-controller="Tamer" asp-action="Edit" asp-route-id="@obj.Id"  class="btn btn-primary btn-md ">Edit</a>
+									<a asp-controller="" asp-action=""  class="btn btn-danger btn-md ">Create new Tamer</a>
+								</div>
+								
+							</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
