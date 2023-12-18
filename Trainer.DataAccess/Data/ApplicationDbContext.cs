@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Trainer.Models;
 
-namespace Trainer.Data
+namespace Trainer.DataAccess.Data
 {
     public class ApplicationDbContext: DbContext
     {

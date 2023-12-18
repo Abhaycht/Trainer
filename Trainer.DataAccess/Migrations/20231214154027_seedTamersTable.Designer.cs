@@ -4,15 +4,16 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Trainer.Data;
+
+using Trainer.DataAccess.Data;
 
 #nullable disable
 
-namespace Trainer.Migrations
+namespace Trainer.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231214152649_addTamersTableToDb")]
-    partial class addTamersTableToDb
+    [Migration("20231214154027_seedTamersTable")]
+    partial class seedTamersTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,6 +44,26 @@ namespace Trainer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tamers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Country = "India",
+                            Name = "Marcus"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Country = "England",
+                            Name = "Thomas"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Country = "Scotland",
+                            Name = "Lily"
+                        });
                 });
 #pragma warning restore 612, 618
         }

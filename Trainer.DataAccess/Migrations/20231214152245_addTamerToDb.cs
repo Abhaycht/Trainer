@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Trainer.Migrations
+namespace Trainer.DataAccess.Migrations
 {
     /// <inheritdoc />
     public partial class addTamerToDb : Migration

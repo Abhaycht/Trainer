@@ -4,11 +4,12 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Trainer.Data;
+
+using Trainer.DataAccess.Data;
 
 #nullable disable
 
-namespace Trainer.Migrations
+namespace Trainer.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20231214152245_addTamerToDb")]
