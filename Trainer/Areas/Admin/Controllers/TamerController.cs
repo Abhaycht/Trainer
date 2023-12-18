@@ -3,8 +3,9 @@ using Trainer.DataAccess.Data;
 using Trainer.Models;
 using Trainer.DataAccess.Repository.IRepository;
 
-namespace TrainerWeb.Controllers
+namespace TrainerWeb.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class TamerController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -14,39 +15,39 @@ namespace TrainerWeb.Controllers
         }
         public IActionResult Index()
         {
-            List<Tamer> objTamerList = _unitOfWork.Tamer.GetAll().ToList(); 
+            List<Tamer> objTamerList = _unitOfWork.Tamer.GetAll().ToList();
             return View(objTamerList);
         }
-        
+
         public IActionResult Create()
         {
 
             return View();
         }
         [HttpPost]
-		public IActionResult Create(Tamer obj)
-		{
-            if(ModelState.IsValid)
+        public IActionResult Create(Tamer obj)
+        {
+            if (ModelState.IsValid)
             {
-				_unitOfWork.Tamer.Add(obj);
+                _unitOfWork.Tamer.Add(obj);
                 _unitOfWork.Save();
                 TempData["success"] = "Created successfully";
                 return RedirectToAction("Index");
 
-			}
+            }
             return View();
-		}
+        }
 
         public IActionResult Edit(int? Id)
         {
-            if(Id  == null || Id== 0)
+            if (Id == null || Id == 0)
             {
                 TempData["error"] = "error";
                 return NotFound();
             }
 
             Tamer? tamerFromDb = _unitOfWork.Tamer.Get(t => t.Id == Id);
-            if(tamerFromDb == null)
+            if (tamerFromDb == null)
             {
                 return NotFound();
             }
@@ -54,39 +55,39 @@ namespace TrainerWeb.Controllers
         }
 
         [HttpPost]
-		public IActionResult Edit(Tamer obj)
-		{
-			if (ModelState.IsValid)
-			{
-				_unitOfWork.Tamer.Update(obj);
+        public IActionResult Edit(Tamer obj)
+        {
+            if (ModelState.IsValid)
+            {
+                _unitOfWork.Tamer.Update(obj);
                 _unitOfWork.Save();
                 TempData["success"] = "Updated successfully";
                 return RedirectToAction("Index");
 
-			}
-			return View();
+            }
+            return View();
 
-		}
+        }
 
-		public IActionResult Delete(int? Id)
-		{
-			if (Id == null || Id == 0)
-			{
+        public IActionResult Delete(int? Id)
+        {
+            if (Id == null || Id == 0)
+            {
                 TempData["error"] = "error";
                 return NotFound();
-			}
+            }
 
-			Tamer? tamerFromDb = _unitOfWork.Tamer.Get(t => t.Id == Id);
+            Tamer? tamerFromDb = _unitOfWork.Tamer.Get(t => t.Id == Id);
             if (tamerFromDb == null)
-			{
-				return NotFound();
-			}
-			return View(tamerFromDb);
-		}
+            {
+                return NotFound();
+            }
+            return View(tamerFromDb);
+        }
 
         [HttpPost]
-		public IActionResult Delete(Tamer obj)
-		{
+        public IActionResult Delete(Tamer obj)
+        {
             Tamer? deleteObj = _unitOfWork.Tamer.Get(t => t.Id == obj.Id);
             if (deleteObj == null)
             {
@@ -95,6 +96,6 @@ namespace TrainerWeb.Controllers
             _unitOfWork.Tamer.Remove(deleteObj);
             _unitOfWork.Save();
             return RedirectToAction("Index");
-		}
-	}
+        }
+    }
 }

@@ -2,8 +2,10 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Trainer.Models;
 
-namespace Trainer.Controllers
+namespace TrainerWeb.Areas.Customer.Controllers
 {
+
+    [Area("Customer")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
