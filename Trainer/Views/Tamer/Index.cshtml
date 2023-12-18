@@ -1,7 +1,7 @@
 ﻿@model List<Tamer>
 
 
-<div class="container-fluid">
+<div class="container-fluid" style="max-width: 70%;" >
 	<div class="row">
 		<div class="col-md-6">
 			<h3>
@@ -50,7 +50,7 @@
 							<td>
 								<div class="w-75  gap-2" role="group">
 									<a asp-controller="Tamer" asp-action="Edit" asp-route-id="@obj.Id"  class="btn btn-primary btn-md ">Edit</a>
-									<a asp-controller="" asp-action=""  class="btn btn-danger btn-md ">Create new Tamer</a>
+									<a asp-controller="Tamer" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger btn-md ">Delete Tamer</a>
 								</div>
 								
 							</td>

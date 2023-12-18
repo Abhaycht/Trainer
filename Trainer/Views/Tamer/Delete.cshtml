@@ -13,21 +13,21 @@
 			@* form *@
 			<form role="form" method="post" class="w-50">
 				<input asp-for="Id" hidden />
-				
+
 				<div class="form-group mb-3">
 					<label class="ms-2" asp-for="Name"></label>
-					<input type="text" asp-for="Name" class="form-control border-0 shadow" />
+					<input type="text" asp-for="Name" class="form-control border-0 shadow" disabled />
 
 				</div>
 				<div class="form-group mb-3">
 					<label class="ms-2" asp-for="Country"></label>
-					<input type="text" asp-for="Country" class="form-control border-0 shadow" />
+					<input type="text" asp-for="Country" class="form-control border-0 shadow" disabled  />
 
 				</div>
 
 				<div class="row pt-2">
 					<div class="col-6 ">
-						<button type="submit" class="btn btn-success form-control">Update</button>
+						<button type="submit" class="btn btn-success form-control" >Delete</button>
 					</div>
 					<div class="col-6 ">
 						<a asp-controller="Tamer" asp-action="Index" class="btn btn-outline-primary border  form-control">
@@ -35,7 +35,7 @@
 						</a>
 					</div>
 				</div>
-				
+
 			</form>
 		</div>
 		<div class="col-md-6">
@@ -62,8 +62,8 @@
 
 
 
-@section Scripts{
+@section Scripts {
 	@{
-	<partial name="_ValidationScriptsPartial" />
+		<partial name="_ValidationScriptsPartial" />
 	}
 }
