@@ -2,10 +2,13 @@
 using Trainer.DataAccess.Data;
 using Trainer.Models;
 using Trainer.DataAccess.Repository.IRepository;
+using Microsoft.AspNetCore.Authorization;
+using Trainer.Utility;
 
-namespace TrainerWeb.Areas.Admin.Controllers
+namespace TrainerWeb.Areas.Customer.Controllers
 {
-    [Area("Admin")]
+    [Area("Customer")]
+    [Authorize(Roles = SD.Role_Customer)]
     public class TamerController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
